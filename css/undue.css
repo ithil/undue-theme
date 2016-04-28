@@ -1,0 +1,257 @@
+@charset "UTF-8";
+body {
+  background-color: #FAFAFA;
+  font-family: georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+#sidebar {
+  position: fixed;
+  top: 48px;
+  left: 24px;
+  width: 150px;
+  padding: 10px;
+  border-color: wheat;
+  border-style: dashed;
+  border-width: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #444;
+  text-align: center;
+  font-family: Futura, "Century Gothic", AppleGothic, sans-serif; }
+  #sidebar .title a {
+    text-decoration: none; }
+  #sidebar .title h1 {
+    margin-top: 0px;
+    margin-bottom: 12px;
+    color: #ffb800;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-family: Baskerville, "Times New Roman", Times, serif;
+    font-style: italic; }
+  #sidebar .description {
+    margin-bottom: 24px;
+    font-size: 12px; }
+  #sidebar #search {
+    outline: none;
+    padding: 0;
+    background: none;
+    border: 0;
+    text-align: center; }
+  #sidebar h6 {
+    margin-bottom: 8px;
+    font-family: Open Sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px; }
+  #sidebar ul {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+    list-style: none; }
+  #sidebar li {
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 13px; }
+  #sidebar li a {
+    display: inline-block;
+    margin: 1px 4px;
+    padding-bottom: 1px;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    color: #427ea3;
+    text-decoration: none; }
+    #sidebar li a:hover {
+      background-color: rgba(82, 158, 204, 0.6);
+      transition: color 100ms ease, background-color 100ms ease;
+      -moz-transition: color 100ms ease, background-color 100ms ease;
+      -webkit-transition: color 100ms ease, background-color 100ms ease; }
+  #sidebar ul.wave {
+    margin-bottom: 0px;
+    color: #800053; }
+    #sidebar ul.wave li {
+      font-size: 40px;
+      font-weight: bold;
+      font-family: Palatino; }
+
+#posts {
+  margin: 40px 40px 40px 168px;
+  margin-left: 250px;
+  margin-right: 100px; }
+
+.post {
+  padding: 13px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 2px #427EA3; }
+  .post a.rebloggedFrom {
+    text-decoration: none;
+    color: black; }
+    .post a.rebloggedFrom:before {
+      content: "→ "; }
+  .post .date {
+    margin-bottom: 10px; }
+    .post .date a {
+      font-size: 13px;
+      color: #444;
+      text-decoration: none; }
+  .post h3.title a {
+    color: black;
+    text-decoration: none; }
+  .post ul.tags {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0; }
+    .post ul.tags li a:before {
+      content: "#"; }
+    .post ul.tags li {
+      display: inline;
+      padding: 5px;
+      margin-left: -5px; }
+    .post ul.tags li, .post ul.tags a {
+      color: grey;
+      text-decoration: none; }
+    .post ul.tags a {
+      padding: 2px;
+      border-radius: 4px; }
+  .post a.source {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+    font-style: italic;
+    text-decoration: none; }
+  .post footer {
+    display: -webkit-flex;
+    display: flex; }
+  .post .notes {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%; }
+    .post .notes a {
+      font-weight: bold;
+      color: black;
+      text-decoration: none; }
+  .post .controls ul {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    list-style-type: none;
+    margin: 0;
+    -webkit-padding-start: 0px; }
+    .post .controls ul li {
+      margin-right: 10px; }
+  .post hr.notesSeparator {
+    border: none;
+    border-top: double #ddd; }
+  .post a {
+    color: cornflowerblue; }
+  .post a.tumblr_blog {
+    color: black;
+    font-weight: bold;
+    text-decoration: none; }
+  .post blockquote.quote {
+    margin: 0px 10px;
+    margin-bottom: 10px;
+    padding: 0.5em 10px;
+    quotes: "“" "”"; }
+    .post blockquote.quote:before {
+      content: open-quote;
+      color: #ccc;
+      font-size: 4em;
+      line-height: 0.1em;
+      vertical-align: -0.4em; }
+  .post ul.chat {
+    list-style-type: none;
+    padding: 0; }
+    .post ul.chat .label {
+      font-weight: bold; }
+  .post blockquote {
+    margin-left: 10px;
+    margin-right: 0;
+    padding-left: 10px;
+    border-left: 2px solid black; }
+  .post p {
+    word-wrap: break-word; }
+
+.post {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 400px; }
+
+body.permalinkPage .post {
+  width: 500px; }
+
+.post ul.tags a[data-tag-name='green'] {
+  background-color: #77AB65;
+  color: white; }
+.post ul.tags a[data-tag-name='blue'] {
+  background-color: #5677E5;
+  color: white; }
+.post ul.tags a[data-tag-name='yellow'] {
+  background-color: #FFE680;
+  color: #444444; }
+.post ul.tags a[data-tag-name='red'] {
+  background-color: #D75F45;
+  color: white; }
+.post ul.tags a[data-tag-name='bw'] {
+  background-color: black;
+  color: white; }
+
+.post.answer .ask-container {
+  background-color: #FAFAFA;
+  padding: 7px;
+  border: 1px solid #CCC;
+  min-height: 40px; }
+  .post.answer .ask-container .avatar {
+    float: left;
+    border-radius: 4px;
+    margin-right: 5px; }
+  .post.answer .ask-container a.asker {
+    font-weight: bold;
+    color: black;
+    text-decoration: none; }
+    .post.answer .ask-container a.asker:after {
+      content: ":"; }
+
+.post.notReblog {
+  background-color: #F5EFE4; }
+
+div#budgie img {
+  width: 77px;
+  height: auto;
+  position: fixed;
+  z-index: 99;
+  bottom: -10px;
+  right: 8px; }
+
+#sidebar li #colours a {
+  color: #929292;
+  border: none; }
+
+#coloursPopup {
+  position: fixed;
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  top: 443px;
+  left: 45px;
+  padding: 8px;
+  border-radius: 5px; }
+
+#coloursPopup div {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-left: 4px;
+  border-radius: 50%;
+  color: black;
+  background-color: black; }
+  #coloursPopup div.green {
+    background-color: #77AB65; }
+  #coloursPopup div.blue {
+    background-color: #5677E5; }
+  #coloursPopup div.yellow {
+    background-color: #FFE680; }
+  #coloursPopup div.red {
+    background-color: #D75F45; }
+
+#coloursPopup div:hover {
+  transform: scale(1.1); }
+
+/*# sourceMappingURL=undue.css.map */

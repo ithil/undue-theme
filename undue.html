@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Variables -->
+    <meta name="text:Stylesheet URL" content="https://www.dropbox.com/s/e6s0vsg2h3kg3d1/undu.css?dl=1"/>
+    <meta name="text:Favicon URL" content="https://www.dropbox.com/s/rd8yole8pt6doet/favicon.png?dl=1"/>
+    <meta name="text:Budgie URL" content="http://static.tumblr.com/zbaanxp/PHqo5bndk/undulat-a__2.svg"/>
+
+    <title>{block:SearchPage}{SearchQuery} / {/block:SearchPage}{block:TagPage}#{Tag} / {/block:TagPage}{block:PostSummary}{PostSummary} / {/block:PostSummary}{Title}</title>
+
+    <link rel="stylesheet" type="text/css" href="{text:Stylesheet URL}">
+    <link rel="shortcut icon" href="{text:Favicon URL}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+      var $grid = $('#posts').masonry({
+        // options
+        itemSelector: '.post',
+        columnWidth: 1,
+      });
+      $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+      });
+    });
+    $(document).ready(function() {
+      $('#colours a').click(
+        function(e){
+          e.preventDefault();
+          $('#coloursPopup').toggle();
+        });
+      });
+    </script>
+    <style type="text/css">
+    {CustomCSS}
+    </style>
+  </head>
+  <body class="{block:IndexPage}indexPage{/block:IndexPage}{block:PermalinkPage}permalinkPage{/block:PermalinkPage}{block:SearchPage} searchPage{/block:SearchPage}{block:TagPage} tagPage{/block:TagPage}">
+    <div id="sidebar">
+      <div class="title">
+        <a href="/" title="/ʌnˈdjuləˌtai/ un-DYOO-lə-TAY"><h1>{Title}</h1></a>
+      </div>
+      {block:Description}
+      <div class="description">{Description}</div>
+      {/block:Description}
+      <ul>
+        {block:AskEnabled}
+        <li><a href="/ask" title="No really, do! I'm always happy to receive some mail :)">{AskLabel}</a></li>
+        {/block:AskEnabled}
+        <li><a href="/archive" title="A bird's eye view over all my posts.">Archive</a></li>
+        <li><a href="/random" title="Tumblr's definition of random is to alternate between four 'random' posts.">Random</a></li>
+        <li>
+          <form method="get" action="/search">
+            <input name="q" placeholder="{lang:Search}" value="{SearchQuery}" id="search" />
+          </form>
+        </li>
+      </ul>
+      <h6 title="Please excuse my inconsistent tagging habits.">Tags</h6>
+      <ul id="sidebar_tags">
+        <li><a href="/tagged/art">#art</a></li>
+        <li><a href="/tagged/nature">#nature</a></li>
+        <li><a href="/tagged/infp">#infp</a></li>
+        <li><a href="/tagged/language">#language</a></li>
+        <li><a href="/tagged/quote">#quote</a></li>
+        <li>
+          <span id="colours">
+            <a href="#">[Colours]</a>
+          </span>
+        </li>
+      </ul>
+
+      {block:Pagination}
+      <ul id="pagination">
+        {block:PreviousPage}
+        <li><a href="{PreviousPage}" id="back">{lang:Previous Page}</a></li>{/block:PreviousPage}
+        {block:NextPage}
+        <li><a href="{NextPage}" id="next" title="Mooooore?? Mooooore!!">{lang:Next Page}</a></li>
+        {/block:NextPage}
+      </ul>
+      {/block:Pagination}
+
+      {block:PermalinkPagination}
+      <ul id="pagination">{block:PreviousPost}
+        <li><a href="{PreviousPost}" id="back">{lang:Previous Post}</a></li>{/block:PreviousPost}{block:NextPost}
+        <li><a href="{NextPost}" id="next">{lang:Next Post}</a></li>{/block:NextPost}
+      </ul>{/block:PermalinkPagination}
+
+      <ul class="wave" title="This too shall pass.">
+        <li>~</li>
+      </ul>
+    </div>
+
+    <div id="posts">
+    {block:Posts inlineNestedMediaWidth="250"}
+      <article class="post {block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Photo}photo{/block:Photo}{block:Panorama}panorama{/block:Panorama}{block:Photoset}photoset{/block:Photoset}{block:quote}quote{/block:quote}{block:Link}link{/block:Link}{block:Chat}chat{/block:Chat}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio} {block:NotReblog}notReblog{/block:NotReblog}">
+
+        {block:RebloggedFrom}
+        <a href="{ReblogParentURL}" class="rebloggedFrom" data-reblog-parent-name="{ReblogParentName}">{ReblogParentName}</a>
+        {/block:RebloggedFrom}
+
+        {block:Date}
+        <div class="date">
+          <a href="{Permalink}">
+            {Month} {DayOfMonth}{DayOfMonthSuffix} {Year}, {12Hour}:{Minutes}:{Seconds} {AmPm} · {TimeAgo}
+          </a>
+        </div>
+        {/block:Date}
+
+        <!-- Text post -->
+        {block:Text}
+        {block:Title}
+        <h3 class="title"><a href="{Permalink}">{Title}</a></h3>
+        {/block:Title}
+        {Body}
+        {/block:Text}
+
+        {block:Answer}
+        <div class="ask-container">
+          <img class="avatar" src="{AskerPortraitURL-40}"></th>
+          <span class="asker">{Asker}</span>
+          <span class="question">{Question}</span>
+        </div>
+        <div class="answer">{Answer}</div>
+        {/block:Answer}
+
+        <!-- Photo post -->
+        {block:Photo}
+        {LinkOpenTag}
+        <img src="{block:IndexPage}{PhotoURL-400}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}" alt="{PhotoAlt}"/>
+        {LinkCloseTag}
+
+        {block:Caption}
+          <div class="caption">{Caption}</div>
+        {/block:Caption}
+
+        {/block:Photo}
+
+        <!-- Panorama post -->
+        {block:Panorama}
+        {LinkOpenTag}
+        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+        {LinkCloseTag}
+        {block:Caption}
+          <div class="caption">{Caption}</div>
+        {/block:Caption}
+        {/block:Panorama}
+
+        <!-- Photoset post -->
+        {block:Photoset}
+        {block:IndexPage}
+        {Photoset-400}
+        {/block:IndexPage}
+        {block:PermalinkPage}
+        {block:Photos}
+        <img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" alt="{PhotoAlt}" class="main_image" />
+        {block:Caption}
+          {Caption}
+        {/block:Caption}
+        {/block:Photos}
+        {/block:PermalinkPage}
+
+        {block:Caption}
+          <div class="caption">{Caption}</div>
+        {/block:Caption}
+        {/block:Photoset}
+
+        <!-- Quote post -->
+        {block:Quote}
+        <blockquote class="quote">
+          {Quote}
+        </blockquote>
+        {block:Source}
+          <div class="source">{Source}</div>
+        {/block:Source}
+        {/block:Quote}
+
+        <!-- Link post -->
+        {block:Link}
+        <a href="{URL}" class="link" {Target}>{Name}</a>
+        {block:Description}
+          <div class="description">{Description}</div>
+        {/block:Description}
+        {/block:Link}
+
+        <!-- Chat post -->
+        {block:Chat}
+        {block:Title}
+          <h3 class="title"><a href="{Permalink}">{Title}</a></h3>
+        {/block:Title}
+        <ul class="chat">
+          {block:Lines}
+          <li class="{Alt} user_{UserNumber}">
+            {block:Label}
+            <span class="label">{Label}</span>
+            {/block:Label}
+            {Line}
+          </li>
+          {/block:Lines}
+        </ul>
+        {/block:Chat}
+
+        <!-- Video post -->
+        {block:Video}
+        {block:IndexPage}
+          {Video-400}
+        {/block:IndexPage}
+        {block:PermalinkPage}
+          {Video-500}
+        {/block:PermalinkPage}
+        {block:Caption}
+          <div class="caption">{Caption}</div>
+        {/block:Caption}
+        {/block:Video}
+
+        <!-- Audio post -->
+        {block:Audio}
+        {block:IndexPage}
+          {AudioEmbed-400}
+        {/block:IndexPage}
+        {block:PermalinkPage}
+          {AudioEmbed-500}
+        {/block:PermalinkPage}
+        {block:Caption}
+          <div class="caption">{Caption}</div>
+        {/block:Caption}
+        {/block:Audio}
+
+        {block:ContentSource}
+        <a href="{SourceURL}" class="source">{lang:Source}: {SourceTitle}</a>
+        {/block:ContentSource}
+
+        {block:HasTags}
+        <ul class="tags">
+          {block:Tags}
+          <li>
+            <a href="{TagURL}" data-tag-name="{Tag}">{Tag}</a>
+          </li>
+          {/block:Tags}
+        </ul>
+        {/block:HasTags}
+
+        <footer>
+          <div class="notes">
+            {block:NoteCount}
+            <a href="{Permalink}">{NoteCountWithLabel}</a>
+            {/block:NoteCount}
+          </div>
+
+          <div class="controls">
+            <ul>
+              <li class="ReblogButton">{ReblogButton}</li>
+              <li class="LikeButton">{LikeButton}</li>
+            </ul>
+          </div>
+        </footer>
+        <!--On permalinkPages only-->
+        {block:PostNotes}
+        <hr class="notesSeparator">
+        {PostNotes}
+        {/block:PostNotes}
+      </article>
+
+    {/block:Posts}
+    </div>
+    <div id="budgie">
+      <img src="{text:Budgie URL}" title="I'm a budgie.">
+    </div>
+
+    <div id="coloursPopup" style="display:none;">
+      <a href="/tagged/blue"><div class="blue"></div></a>
+      <a href="/tagged/green"><div class="green"></div></a>
+      <a href="/tagged/yellow"><div class="yellow"></div></a>
+      <a href="/tagged/red"><div class="red"></div></a>
+      <a href="/tagged/bw"><div class="bw"></div></a>
+    </div>
+  </body>
+</html>
