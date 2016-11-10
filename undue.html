@@ -94,6 +94,11 @@
     </div>
 
     <div id="posts">
+    {block:TagPage}
+      <div class="tagIntro gridItem tagPage_{Tag}">
+        <h1>{Tag}</h1>
+      </div>
+    {/block:TagPage}
     {block:Posts inlineNestedMediaWidth="250"}
       <article class="post {block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Photo}photo{/block:Photo}{block:Panorama}panorama{/block:Panorama}{block:Photoset}photoset{/block:Photoset}{block:quote}quote{/block:quote}{block:Link}link{/block:Link}{block:Chat}chat{/block:Chat}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio} {block:NotReblog}notReblog{/block:NotReblog}">
 

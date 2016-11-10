@@ -77,7 +77,6 @@ body {
   margin-right: 100px; }
 
 .post {
-  padding: 13px;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.05);
   box-shadow: 0px 0px 2px #427EA3; }
@@ -169,10 +168,11 @@ body {
   .post p {
     word-wrap: break-word; }
 
-.post {
+.gridItem {
   margin-bottom: 20px;
   margin-right: 20px;
-  width: 400px; }
+  width: 400px;
+  padding: 13px; }
 
 body.permalinkPage .post {
   width: 500px; }
@@ -223,6 +223,49 @@ div#budgie img {
 #sidebar li #colours a {
   color: #929292;
   border: none; }
+
+.tagIntro {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: wheat;
+  border-style: dashed;
+  border-width: 3px;
+  border-radius: 10px; }
+  .tagIntro h1 {
+    margin: 0;
+    font-style: italic;
+    text-align: center; }
+    .tagIntro h1:before {
+      content: "#"; }
+
+.tagPage_green {
+  background-color: #77AB65;
+  color: white;
+  border: none; }
+
+.tagPage_blue {
+  background-color: #5677E5;
+  color: white;
+  border: none; }
+
+.tagPage_yellow {
+  background-color: #FFE680;
+  color: #444444;
+  border: none; }
+
+.tagPage_red {
+  background-color: #D75F45;
+  color: white;
+  border: none; }
+
+.tagPage_bw {
+  background-color: black;
+  color: white;
+  border: none; }
+
+.tagPage_stars {
+  color: #f3f5b3;
+  border: none;
+  background: url("https://www.dropbox.com/s/k8moxjws5c79e7m/stars2.svg?dl=1") repeat black; }
 
 #coloursPopup {
   position: fixed;
