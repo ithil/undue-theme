@@ -135,6 +135,12 @@ body {
     -webkit-padding-start: 0px; }
     .post .controls ul li {
       margin-right: 10px; }
+    .post .controls ul li.ZoomButton {
+      margin-top: -2px; }
+      .post .controls ul li.ZoomButton a {
+        text-decoration: none;
+        text-shadow: 0px 0px 0px black;
+        color: transparent; }
   .post hr.notesSeparator {
     border: none;
     border-top: double #ddd; }
